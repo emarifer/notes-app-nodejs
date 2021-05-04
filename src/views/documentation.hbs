@@ -1,0 +1,27 @@
+<section class="jumbotron text-light">
+    <div class="card-body">
+        <h1>Documentation</h1>
+        <hr class="bg-light my-4 mx-1">
+        <p class="lead">Simple notes app for NodeJS with authentication via PassportJS.</p>
+        <p>Installation:</p>
+        <pre>
+            <code class="javascript rounded-lg">
+                npm i
+            </code>
+        </pre>
+        <p>You must create an .env file with the environment variables that store the credentials of a MongoDB Atlas database (in the MONGODB_URI string with USER_NAME, PASSWORD and DBNAME). The following variable stores the secret string used for express-session. The last item you must create is used to provide a subroute on the server (eg, Nginx). If the application is deployed on a Heroku-type server, it will be necessary to configure these environment variables, except for the one that refers to the subrout, which must be left empty.</p>
+        <pre>
+            <code class="javascript rounded-lg">
+                PORT=0000
+                MONGODB_URI='mongodb+srv://xxxx:xxxx@cluster0.4temp.mongodb.net/xxxx?retryWrites=true&w=majority'
+                SECRET_SESSION=xxxx
+                PREFIX_APP=/xxxx
+                
+                // 1. replace 'xxxx' or '0000' with the corresponding values
+                // 2. remove the quotes from the code in the MONGODB_URI string
+            </code>
+        </pre>
+        <p>In the latter case, it is not necessary to set the port in said .env file.</p>
+        <p>Look and/or download the application code from <a href="https://github.com/emarifer/notes-app-nodejs" target="_blank" rel="noopener noreferrer">here</a>.</p>
+    </div>
+</section>
