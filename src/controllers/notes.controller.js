@@ -1,13 +1,6 @@
 const Note = require('../models/notes');
 const { prefix } = require('../helpers/prefixer');
 
-function addPrefix(notes) {
-    notes.forEach(element => {
-        element.prefixApp = prefix();
-    });
-    return notes;
-};
-
 module.exports = {
     renderNoteForm: (req, res) => res.render('notes/new-note'),
     createNewNote: async (req, res) => {
@@ -20,7 +13,7 @@ module.exports = {
     },
     renderNotes: async (req, res) => {
         const notes = await Note.find({ uid: req.user.id }).lean(); // VER NOTA-1 ABAJO
-        res.render('notes/all-notes', { notes: addPrefix(notes) });
+        res.render('notes/all-notes', { notes });
     },
     renderEditForm: async (req, res) => {
         const note = await Note.findById(req.params.id).lean();

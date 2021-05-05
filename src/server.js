@@ -12,8 +12,10 @@ require('dotenv').config();
 // Initializations
 const app = express();
 app.locals.prefixApp = process.env.PREFIX_APP;
+const prefix = `${process.env.PREFIX_APP}`.length !== 0 ? `${process.env.PREFIX_APP}` : '/';
 require('./database');
 require('./config/passport');
+global.process.e
 
 // Settings
 app.set('port', process.env.PORT || 3004);
@@ -23,6 +25,9 @@ app.engine('.hbs', exphbs({
     layoutsDir: path.join(app.get('views'), 'layouts'),
     partialsDir: path.join(app.get('views'), "partials"),
     extname: '.hbs',
+    helpers: {
+      normalizer: () => prefix
+    }
   }));
 app.set("view engine", '.hbs');
 
@@ -66,4 +71,6 @@ module.exports = app;
   https://stackoverflow.com/questions/42641992/sub-routes-in-main-route-not-getting-static-files-expressjs#42643196
   NOTA-2. VER:
   https://stackoverflow.com/questions/35111143/express4-whats-the-difference-between-app-locals-res-locals-and-req-app-local/35111195
+  NOTA-3. SOBRE HELPERS EN EXPRESS-HANDLEBARS. VER:
+  https://www.npmjs.com/package/express-handlebars#helpers
 */
