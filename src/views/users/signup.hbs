@@ -4,7 +4,7 @@
             <h3>Account Register</h3>
         </div>
         <div class="card-body">
-            <form action="/users/signup" method="POST">
+            <form action="{{ prefixApp }}/users-signup" method="POST">
                 <div class="form-group">
                     <input type="text" class="form-control rounded-lg" name="name" placeholder="User Name" autofocus required value="{{ name }}">
                 </div>

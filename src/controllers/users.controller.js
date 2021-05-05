@@ -1,25 +1,26 @@
 const passport = require('passport');
+const { prefix } = require('../helpers/prefixer');
 
 module.exports = {
     renderSignUpForm: (req, res) => {
         res.render('users/signup');
     },
     signup: passport.authenticate('local-signup', {
-        failureRedirect: '/users/signup',
+        failureRedirect: `${prefix()}/users-signup`,
         failureFlash: true,
-        successRedirect: '/notes'
+        successRedirect: `${prefix()}/notes`
     }),
     renderSignInForm: (req, res) => {
         res.render('users/signin');
     },
     signin: passport.authenticate('local-signin', {
-        failureRedirect: '/users/signin',
+        failureRedirect: `${prefix()}/users-signin`,
         failureFlash: true,
-        successRedirect: '/notes'
+        successRedirect: `${prefix()}/notes`
     }),
     logout: (req, res) => {
         req.logout();
         req.flash('success_msg', 'You are logged out now.');
-        res.redirect('/users/signin');
+        res.redirect(`${prefix()}/users-signin`);
     }
 };

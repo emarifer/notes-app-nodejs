@@ -11,6 +11,7 @@ require('dotenv').config();
 
 // Initializations
 const app = express();
+app.locals.prefixApp = process.env.PREFIX_APP;
 require('./database');
 require('./config/passport');
 
@@ -46,14 +47,23 @@ app.use((req, res, next) => {
   res.locals.user = req.user || null;
   if(res.locals.user) res.locals.name = req.user.name;
   next();
-});
+});// VER NOTA-2 ABAJO:
 
 // Routes
-app.use(require('./routes/index.routes'));
-app.use(require('./routes/users.routes'));
-app.use(require('./routes/notes.routes'));
+app.use(process.env.PREFIX_APP, require('./routes/index.routes'));
+app.use(process.env.PREFIX_APP, require('./routes/users.routes'));
+app.use(process.env.PREFIX_APP, require('./routes/notes.routes'));
 
 // Static Files
-app.use(express.static(path.join(__dirname, 'public')));
+// VER NOTA-1 ABAJO:
+app.use(process.env.PREFIX_APP, express.static(path.join(__dirname, 'public')));
 
 module.exports = app;
+
+/* 
+  NOTA-1. REDUCIR TODAS LAS RUTAS A UN "NIVEL DE PROFUNDIDAD"; SI NO SE PUEDE PORQUE, P.EJ., HAYA PARAMETROS EN LA RUTA EN ESE PARTIALS DE HANDLEBARS HABRA QUE VOLVER A COLOCAR EL CSS Y EL FAVICON. VER:
+  https://stackoverflow.com/questions/34597072/express-static-not-working-for-subdirectory#34597221
+  https://stackoverflow.com/questions/42641992/sub-routes-in-main-route-not-getting-static-files-expressjs#42643196
+  NOTA-2. VER:
+  https://stackoverflow.com/questions/35111143/express4-whats-the-difference-between-app-locals-res-locals-and-req-app-local/35111195
+*/

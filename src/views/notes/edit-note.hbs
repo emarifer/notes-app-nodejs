@@ -1,10 +1,12 @@
+<link rel="stylesheet" href="../css/main.css">
+<link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
 <div class="col-md-6 mx-auto">
     <div class="jumbotron text-light text-center">
         <div class="card-header">
             <h3>Edit Note</h3>
         </div>
         <div class="card-body">
-            <form action="/notes/edit/{{ note._id }}?_method=PUT" method="POST">
+            <form action="{{ prefixApp }}/notes-edit/{{ note._id }}?_method=PUT" method="POST">
                 <input type="hidden" name="_method" value="PUT">
                 <div class="form-group">
                     <input type="text" name="title" class="form-control rounded-lg" placeholder="Title" autofocus value="{{ note.title }}">
@@ -22,3 +24,5 @@
         </div>
     </div>
 </div>
+
+{{!-- USANDO PREFIJO DE SERVIDOR EL CSS Y EL FAVICON SE COLOCA EN LOS PARTIALS CUANDO HAY SUBNIVELES DE RUTAS --}}

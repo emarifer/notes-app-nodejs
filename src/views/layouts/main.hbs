@@ -11,8 +11,9 @@
     {{!-- HIGHLIGHTJS CSS --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai-sublime.min.css" integrity="sha512-/l4iViNMhxR5MhSlak3Yw/L/7qUBifVy7MpLjeJTc8BPMRFbGplGN0xqufCDwhSdxSnVgy+e/OYsNnU75K3yyQ==" crossorigin="anonymous" />
     {{!-- CUSTOM CSS --}}
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    {{!-- USANDO PREFIJO DE SERVIDOR EL CSS Y EL FAVICON SE COLOCA EN LOS PARTIALS CUANDO HAY SUBNIVELES DE RUTAS --}}
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
 </head>
 <body>
     {{>navigation}}
