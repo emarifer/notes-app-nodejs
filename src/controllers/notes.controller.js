@@ -21,7 +21,7 @@ module.exports = {
             req.flash('error_msg', 'Not Authorized.');
             return res.redirect(`${prefix()}/notes`);
         }
-        res.render('notes/edit-note', { note });
+        res.render('notes/edit-note', { note, subpath: true });
     },
     updateNote: async (req, res) => {
         const { title, description } = req.body;
