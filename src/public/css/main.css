@@ -62,6 +62,53 @@ img {
     padding-bottom: 1rem;
 }
 
+@media screen and (max-width: 400px) {
+    .button-shadow {
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+        padding: 0;
+        text-align: center;
+        height: 1.85rem;
+        font-size: 0.85rem;
+    }    
+    .card-title {
+        font-size: 1.35rem;
+    }
+    code {
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+        max-width: 85%;
+    }
+    .display-4 {
+        font-size: 2rem;
+    }
+    .doc {
+        font-size: 1.75rem;
+    }
+    .form-control {
+        height: 1.85rem;
+    }
+    img {
+        width: 110px;
+    }
+    .javascript {
+        font-size: 0.65rem;
+    }
+
+    .jumbotron {
+        box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+    }
+    .lead {
+        font-size: 1rem;
+    }
+    p {
+        font-size: 0.85rem;
+    }
+    .site {
+        padding-top: .2rem;
+        display: block;
+    }
+}
+
 
 /* 
     REAL GLASSMORPHISM EFFECTS. VER:
